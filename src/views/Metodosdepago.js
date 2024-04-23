@@ -66,17 +66,15 @@ function MetodosDePago() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const metodoData = {
-      idPago: currentMetodo ? currentMetodo.idPago : null, // Asegura que el idPago está presente para la actualización
+      ...(currentMetodo && {idPago: currentMetodo.idPago}),
       idMetodoPago: parseInt(idMetodoPago),
       idContrasena: parseInt(idContrasena),
     };
 
     try {
       if (currentMetodo) {
-        // Utiliza PUT para actualizar el registro existente
         await axios.put(`https://localhost:7190/api/metodosdepago/${currentMetodo.idPago}`, metodoData);
       } else {
-        // Utiliza POST para crear un nuevo registro
         await axios.post('https://localhost:7190/api/metodosdepago', metodoData);
       }
       setModalOpen(false);
