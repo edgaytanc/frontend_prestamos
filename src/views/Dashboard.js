@@ -12,6 +12,7 @@ import Prestamos from './Prestamos';
 import Documentos from './Docmentos';
 import Contrasenas from './Contrasenas';
 import MetodosDePago from './Metodosdepago';
+import PagosPendientes from './PagosPendientes';
 
 const drawerWidth = 240;
 
@@ -39,7 +40,7 @@ function Dashboard() {
                 <Toolbar />
                 <Box sx={{ overflow: 'auto' }}>
                     <List>
-                        {['Usuarios', 'Proveedores', 'Prestamos', 'Documentos', 'Contrasenas','MetodosdePago'].map((text, index) => (
+                        {['Usuarios', 'Proveedores', 'Prestamos', 'Documentos', 'Contrasenas','MetodosdePago','PagosPendientes'].map((text, index) => (
                             <ListItem button key={text} component={Link} to={`/dashboard/${text.toLowerCase()}`}>
                                 <ListItemIcon>
                                     {index === 0 && <PeopleIcon />}
@@ -64,6 +65,7 @@ function Dashboard() {
                     <Route path="documentos" element={<Documentos />} />
                     <Route path="contrasenas" element={<Contrasenas />} />
                     <Route path="metodosdepago" element={<MetodosDePago />} />
+                    <Route path="pagospendientes" element={<PagosPendientes />} />
                     {/* Añadir rutas para otros componentes aquí */}
                 </Routes>
             </Box>
